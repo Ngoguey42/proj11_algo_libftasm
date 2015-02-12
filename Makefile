@@ -6,7 +6,7 @@
 #    By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/04 11:29:36 by ngoguey           #+#    #+#              #
-#    Updated: 2015/02/12 08:38:08 by ngoguey          ###   ########.fr        #
+#    Updated: 2015/02/12 09:31:04 by ngoguey          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -36,7 +36,10 @@ OBJPERLINES = 4
 
 
 #SOURCES
-SRCSFILES = 
+SRCSFILES = \
+ft_isalpha.s ft_isdigit.s ft_isascii.s ft_isalnum.s ft_isprint.s\
+ft_toupper.s ft_tolower.s\
+ft_puts.s
 
 
 #SOURCES/OBJECTS TARGETS
@@ -58,7 +61,7 @@ $(OBJECTS): $(OBJPATH)/%.o : $(SRCPATH)/%.s
 	 @#printf "$(R)%-*s$(E)" $(TABLEN) "$@"
 	@if [ $(COUNT) -eq 0 ] ; then printf "$(R)%s$(E)\n" "$@" ; else printf "$(R)%-*s$(E)" $(TABLEN) "$@" ; fi
 	@mkdir -p $(dir $@)
-	@$(CC) -o $@ $(CFLAGS) -I $(INCLUDE) -c $<
+	@$(CC) $(CFLAGS) -o $@ $<
 
 clean:
 	@printf "$(Y)%-6s$(E) $(OBJPATH)\n" "$(RM)"

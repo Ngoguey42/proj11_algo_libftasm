@@ -1,11 +1,8 @@
-# Project #1 LIBFT-ASM, Feb 2015
+# Project #11 LIBFT-ASM, Feb 2015
 >>>>> #####Personal ASM Library
 
 #####Grade ``(TBD/120)`` ``(TBD/120)*``
 --------  -----------------------
-<br>
-
-<br>
 
 <br>
 
