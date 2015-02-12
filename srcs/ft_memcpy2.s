@@ -1,26 +1,29 @@
 ;******************************************************************************;
 ;                                                                              ;
 ;                                                         :::      ::::::::    ;
-;    ft_strcpy.s                                        :+:      :+:    :+:    ;
+;    ft_memcpy2.s                                       :+:      :+:    :+:    ;
 ;                                                     +:+ +:+         +:+      ;
 ;    By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
-;    Created: 2015/02/12 14:00:33 by ngoguey           #+#    #+#              ;
-;    Updated: 2015/02/12 14:13:46 by ngoguey          ###   ########.fr        ;
+;    Created: 2015/02/12 13:22:33 by ngoguey           #+#    #+#              ;
+;    Updated: 2015/02/12 13:22:38 by ngoguey          ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
-global ft_strcpy
-extern ft_memcpy
-extern ft_strlen
+global ft_memcpy2
 
-ft_strcpy:
-	push rdi
-	push rsi
-	mov rdi, rsi
-	call ft_strlen
-	inc rax
-	mov rdx, rax				;setting memcpy size
-	pop rsi						;setting memcpy src
-	pop rdi						;setting memcpy dst
-	jmp ft_memcpy
+ft_memcpy2:
+	mov rax, rdi
+	
+.loop:
+	cmp rdx, 0
+	je .end
+	dec rdx
+	mov cl, [rsi]
+	mov [rdi], cl
+	inc rdi
+	inc rsi
+	jmp .loop
+
+.end:
+	ret

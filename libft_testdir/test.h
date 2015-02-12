@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:21:13 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/12 12:12:23 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/12 14:12:23 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,11 @@ typedef unsigned int t_ui32;
  /* # define TEST_MEMCMP */
  # define TEST_MEMCPY
  /* # define TEST_MEMMOVE */
- /* # define TEST_MEMSET */
+ # define TEST_MEMSET
  # define TEST_TOLOWER
  # define TEST_STRCPY
  # define TEST_STRCAT
+ # define TEST_STRDUP
 
  # define TEST_TOUPPER
  # define TEST_PUTS
@@ -88,7 +89,6 @@ typedef unsigned int t_ui32;
  /*
  # define TEST_STRCHR
  # define TEST_STRCMP
- # define TEST_STRDUP
  # define TEST_STRLCAT
  # define TEST_STRNCAT
  # define TEST_STRNCMP

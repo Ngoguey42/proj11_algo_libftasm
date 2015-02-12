@@ -6,12 +6,12 @@
 ;    By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+         ;
 ;                                                 +#+#+#+#+#+   +#+            ;
 ;    Created: 2015/02/12 12:09:16 by ngoguey           #+#    #+#              ;
-;    Updated: 2015/02/12 12:37:15 by ngoguey          ###   ########.fr        ;
+;    Updated: 2015/02/12 14:00:05 by ngoguey          ###   ########.fr        ;
 ;                                                                              ;
 ;******************************************************************************;
 
 global ft_strcat
-extern ft_strcpy
+extern ft_strcpy2
 
 ft_strcat:
 	mov r8, rdi
@@ -23,6 +23,6 @@ ft_strcat:
 	jmp .loop
 
 .found:
-	call ft_strcpy
+	call ft_strcpy2
 	mov rax, r8
 	ret
