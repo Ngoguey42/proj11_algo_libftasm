@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:21:13 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/12 14:12:23 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/12 14:50:18 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ typedef unsigned int t_ui32;
 
  # define TEST_TOUPPER
  # define TEST_PUTS
+ # define TEST_CAT
  # define TEST_STRLEN
 
  /*
@@ -99,6 +100,7 @@ typedef unsigned int t_ui32;
  */
 
 void try_puts(void);
+void try_cat(void);
 void try_atoi(void);
 void try_bzero(void);
 void try_isalnum(void);
@@ -128,7 +130,8 @@ void try_strstr(void);
 void try_tolower(void);
 void try_toupper(void);
 
-
+int	ft_cat(int fd);
+/* void	ft_cat(int fd); */
 int ft_puts ( const char * str );
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);

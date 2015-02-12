@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:29:25 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/12 09:42:17 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/12 14:39:43 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,9 @@ try_toupper();
 # endif
 # ifdef TEST_PUTS
 try_puts();
+# endif
+# ifdef TEST_CAT
+try_cat();
 # endif
 
 #endif

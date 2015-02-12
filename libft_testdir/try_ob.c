@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:28:34 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/12 12:37:28 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/12 15:18:05 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,43 @@
 
 int		g_temoin;
 
+
+#ifdef TEST_CAT
+
+#include <fcntl.h>
+#include <unistd.h>
+
+void try_cat(void)
+{
+	ft_putstr("5: testing (ft_cat):\n");
+	int fd;
+	int debug;
+
+#define CAT_MACRO(file)\
+	fd = open(file, O_RDONLY);							\
+	printf("oppening \"%s\", fd = (%d), CALLING:======================\n", file, fd);\
+	fflush(stdout);\
+	debug = ft_cat(fd);							\
+	close(fd);									\
+	printf("closing \"%s\", fd = (%d), :==============================\n", file, fd);
+	
+	/* printf("debug: %u %x\n", debug, debug); */
+
+	fd = open("empty", O_CREAT, S_IRWXU);
+	close(fd);
+
+	
+	(void)debug;
+
+	CAT_MACRO("/usr/share/man/man4/aio.4");	
+	CAT_MACRO("/usr/share/man/man4/lol");
+	CAT_MACRO("/usr/share/man/man4/networking.4");
+	CAT_MACRO("../auteur");
+	CAT_MACRO("empty");
+
+	ft_putstr("\n------------------------------\n");
+}
+#endif
 
 #ifdef TEST_PUTS
 void try_puts(void)
