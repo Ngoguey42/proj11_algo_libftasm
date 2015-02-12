@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:28:34 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/12 12:15:56 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/12 12:37:28 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -807,27 +807,34 @@ void try_memset(void)
 void try_strcat(void)
 {
     ft_putstr("10: testing (strcat):\n");
-	char *test1lol;
-	char *test2lol;
-	char*	test3lol;
-	char*	test4lol;
-	#define STRCAT_MACRO(x, y, z) test1lol = malloc(30);\
-	memset(test1lol, 43, 29);\
-	test1lol[0] = 0; test1lol[29] = 0;\
-	test1lol = strcpy(test1lol, (x));\
-	test2lol = (y);\
-	test3lol= malloc(30);\
-	test3lol=memcpy(test3lol, test1lol, 30);\
-	test4lol=strdup(test2lol);											\
-	printf("s1:(%5s) s2:(%5s) REF:(", test1lol, test2lol);\
-	fflush(stdout);										  \
-	ref_myputnchar(strcat(test1lol, test2lol), 30);						\
-	printf(") CUS:("); fflush(stdout); \
-	ref_myputnchar(ft_strcat(test3lol, test4lol), 30); \
-	printf(") "); fflush(stdout);									\
-	ref_myassert(!(memcmp(test1lol, test3lol, 30))); \
-	printf("\n");
 
+	char* ref_dst;
+	char* cus_dst;
+	char* ret;
+
+#define STRCAT_MACRO(x, y, z)\
+	ref_dst = malloc(20);\
+	cus_dst = malloc(20);\
+	memset(ref_dst, '_', 19);\
+	memset(cus_dst, '_', 19);\
+	ref_dst[19] = 0;\
+	cus_dst[19] = 0;\
+	strcpy(ref_dst, x);\
+	strcpy(cus_dst, x);\
+	printf("s1:(%5s) s2:(%5s) ", x, y);								\
+	printf("REF:diff:%ju(", ref_dst - strcat(ref_dst, y));	\
+	fflush(stdout);\
+	ref_myputnchar(ref_dst, 20);\
+	printf(") ");\
+	printf("CUS:diff:%ju(", cus_dst - ft_strcat(cus_dst, y));	\
+	fflush(stdout);\
+	ref_myputnchar(cus_dst, 20);\
+	printf(")\n");
+
+	
+	(void)ret;
+	
+	
 	STRCAT_MACRO("", "", 0)
 	STRCAT_MACRO("s", "", 0)
 	STRCAT_MACRO("", "s", 0)
