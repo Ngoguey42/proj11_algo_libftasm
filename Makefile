@@ -6,7 +6,7 @@
 #    By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/04 11:29:36 by ngoguey           #+#    #+#              #
-#    Updated: 2015/02/12 10:23:16 by ngoguey          ###   ########.fr        #
+#    Updated: 2015/02/12 12:12:31 by ngoguey          ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -40,7 +40,7 @@ SRCSFILES = \
 ft_isalpha.s ft_isdigit.s ft_isascii.s ft_isalnum.s ft_isprint.s\
 ft_toupper.s ft_tolower.s\
 ft_puts.s\
-ft_strlen.s
+ft_strlen.s ft_bzero.s ft_memcpy.s ft_strcpy.s ft_strcat.s
 
 
 #SOURCES/OBJECTS TARGETS

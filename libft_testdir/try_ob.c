@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:28:34 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/12 10:42:57 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/12 12:15:56 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void try_bzero(void)
 	int i;
 	size_t		size;
 
-	#define BZERO_MACRO(SIZE) size = SIZE;\
+#define BZERO_MACRO(SIZE) size = (size_t)SIZE;		\
 	for (i = 0; i < 10; i++)\
 	{\
 		strref[i] = i + 'A';\
@@ -130,11 +130,11 @@ void try_bzero(void)
 	}\
 	bzero(ptrref, size);\
 	ft_bzero(ptrcus, size);\
-	printf("\033[34mREF\033[39m-->%z<----", size);\
+	printf("\033[34mREF\033[39m-->%zu<----", size);\
 	fflush(stdout);\
 	ref_myputnchar(strref, 10);\
 	printf("-------\n");\
-	printf("\033[35mCUS\033[39m-->%z<----", size);\
+	printf("\033[35mCUS\033[39m-->%zu<----", size);\
 	fflush(stdout);\
 	ref_myputnchar(strcus, 10);\
 	printf("-------");\
@@ -811,12 +811,22 @@ void try_strcat(void)
 	char *test2lol;
 	char*	test3lol;
 	char*	test4lol;
-	#define STRCAT_MACRO(x, y, z) test1lol = malloc(30); memset(test1lol, 43, 29); test1lol[0] = 0; test1lol[29] = 0; test1lol = strcpy(test1lol, (x)); \
-	test2lol = (y); test3lol= malloc(30); test3lol=memcpy(test3lol, test1lol, 30); test4lol=strdup(test2lol); \
-	printf("s1:(%5s) s2:(%5s) REF:(", test1lol, test2lol); fflush(stdout); \
-	ref_myputnchar(strcat(test1lol, test2lol), 30); \
-	printf(") CUS:("); fflush(stdout); ref_myputnchar(ft_strcat(test3lol, test4lol), 30); printf(") "); fflush(stdout); \
-	ref_myassert(!(memcmp(test1lol, test3lol, 30))); printf("\n");
+	#define STRCAT_MACRO(x, y, z) test1lol = malloc(30);\
+	memset(test1lol, 43, 29);\
+	test1lol[0] = 0; test1lol[29] = 0;\
+	test1lol = strcpy(test1lol, (x));\
+	test2lol = (y);\
+	test3lol= malloc(30);\
+	test3lol=memcpy(test3lol, test1lol, 30);\
+	test4lol=strdup(test2lol);											\
+	printf("s1:(%5s) s2:(%5s) REF:(", test1lol, test2lol);\
+	fflush(stdout);										  \
+	ref_myputnchar(strcat(test1lol, test2lol), 30);						\
+	printf(") CUS:("); fflush(stdout); \
+	ref_myputnchar(ft_strcat(test3lol, test4lol), 30); \
+	printf(") "); fflush(stdout);									\
+	ref_myassert(!(memcmp(test1lol, test3lol, 30))); \
+	printf("\n");
 
 	STRCAT_MACRO("", "", 0)
 	STRCAT_MACRO("s", "", 0)
