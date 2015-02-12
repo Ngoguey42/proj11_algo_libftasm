@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:21:13 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/12 09:41:21 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/12 10:23:00 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef unsigned int t_ui32;
 
 # define TEST_TOUPPER
 # define TEST_PUTS
+ # define TEST_STRLEN
 
  /*
  # define TEST_STRCAT
@@ -89,7 +90,6 @@ typedef unsigned int t_ui32;
  # define TEST_STRCPY
  # define TEST_STRDUP
  # define TEST_STRLCAT
- # define TEST_STRLEN
  # define TEST_STRNCAT
  # define TEST_STRNCMP
  # define TEST_STRNCPY

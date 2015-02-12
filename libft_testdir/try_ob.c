@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:28:34 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/12 09:44:11 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/12 10:42:57 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@ int		g_temoin;
 void try_puts(void)
 {
 	ft_putstr("5: testing (ft_puts):\n");
-	printf("\033[34mREF\033[39m==>%s====>%s====>%s", "\n", "s\n", "salutsalutsalutsalu\
-tsalutsalutsalutsalutsalutsalutsalutsalutsalut\n");
-	printf("\033[35mCUS\033[39m==>"); fflush(stdout);
+	printf("\033[34mREF\033[39m=>%s====>%s====>%s====>(null)\n", "\n", "s\n",
+		   "salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut\n");
+	printf("\033[35mCUS\033[39m=>"); fflush(stdout);
 	ft_puts("");
 	printf("====>"); fflush(stdout);
 	ft_puts("s");
 	printf("====>"); fflush(stdout);
 	ft_puts("salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut");
+	printf("====>"); fflush(stdout);
+	ft_puts(NULL);
 	ft_putstr("\n------------------------------\n");
 }
 #endif
@@ -1182,7 +1184,9 @@ void try_strlen(void)
 	for (i = 10; i >= 0; i--)
 	{
 		str[i] = '\0';
-		printf("%10s  ref:(%02u)  cus:(%02u)  ", str, refret = strlen(str), cusret = ft_strlen(str));
+		
+		printf("%10s  ref:(%02zu)  cus:(%02zu)  ", str,
+			   refret = strlen(str), cusret = ft_strlen(str));
 		fflush(stdout);
 		ref_myassert(refret == cusret);
 		printf("\n");
