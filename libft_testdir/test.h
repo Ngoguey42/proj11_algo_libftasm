@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:21:13 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/13 09:05:37 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/13 09:59:57 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,17 @@ typedef unsigned int t_ui32;
  /* # define TEST_CAT */
  # define TEST_STRCMP
 /* # define TEST_STRLEN */
+ # define TEST_MEMCHR
+ # define TEST_STRCHR
 
 
 
  /* # define TEST_ATOI */
  /* # define TEST_MEMMOVE */
  /* # define TEST_MEMCCPY */
- /* # define TEST_MEMCHR */
 
 
  /*
- # define TEST_STRCHR
  # define TEST_STRLCAT
  # define TEST_STRNCAT
  # define TEST_STRNCMP

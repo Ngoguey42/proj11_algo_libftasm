@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:28:34 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/13 08:45:13 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/13 09:45:06 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int		g_temoin;
 
+/*
+
+
+ */
 
 #ifdef TEST_CAT
 
@@ -533,7 +537,12 @@ void	one_memchr(void *ptr, int c)
 	fflush(stdout);
 	refret = memchr(ptr, c, len);
 	ref_myputnchar(ptr, len);
-	printf("\" size[%*u] int[%3d] toUchar[%3hhu]'%c'\t", 14 - len, len, c, (unsigned char)c, (isgraph((int)(unsigned char)c) ? (unsigned char)c : (unsigned char)0));
+	printf("\" size[%*zu] ", 14 - (int)len, len);
+	printf("int[%3d] ", c);
+	printf("toUchar[%3hhu] ", (unsigned char)c);
+	printf("'%c'", (isgraph((int)(unsigned char)c) ?
+					(unsigned char)c : (unsigned char)0));
+	/* printf("\" size[%*u] int[%3d] toUchar[%3hhu]'%c'\t", 14 - len, len, c, (unsigned char)c, (isgraph((int)(unsigned char)c) ? (unsigned char)c : (unsigned char)0)); */
 	printf("ret\"");
 	fflush(stdout);
 	if (refret)
@@ -550,7 +559,13 @@ void	one_memchr(void *ptr, int c)
 	fflush(stdout);
 	cusret = ft_memchr(ptr, c, len);
 	ref_myputnchar(ptr, len);
-	printf("\" size[%*u] int[%3d] toUchar[%3hhu]'%c'\t", 14 - len, len, c, (unsigned char)c, (isgraph((int)(unsigned char)c) ? (unsigned char)c : (unsigned char)0));
+	printf("\" size[%*zu] ", 14 - (int)len, len);
+	printf("int[%3d] ", c);
+	printf("toUchar[%3hhu] ", (unsigned char)c);
+	printf("'%c'", (isgraph((int)(unsigned char)c) ?
+					(unsigned char)c : (unsigned char)0));
+
+	/* printf("\" size[%*zu] int[%3d] toUchar[%3hhu]'%c'\t", 14 - len, len, c, (unsigned char)c, (isgraph((int)(unsigned char)c) ? (unsigned char)c : (unsigned char)0)); */
 	printf("ret\"");
 	fflush(stdout);
 	if (cusret)
