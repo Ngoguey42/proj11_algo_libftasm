@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:28:34 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/12 15:18:05 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/13 08:45:13 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ void try_cat(void)
 
 #define CAT_MACRO(file)\
 	fd = open(file, O_RDONLY);							\
-	printf("oppening \"%s\", fd = (%d), CALLING:======================\n", file, fd);\
+	printf("oppening \"%s\", fd = (%d), CALLING:======================\n\e[31m", file, fd);	\
 	fflush(stdout);\
 	debug = ft_cat(fd);							\
 	close(fd);									\
-	printf("closing \"%s\", fd = (%d), :==============================\n", file, fd);
+	printf("\e[0mclosing \"%s\", fd = (%d), :==============================\n\n", file, fd);
 	
-	/* printf("debug: %u %x\n", debug, debug); */
+
+/* printf("debug: %u %x\n", debug, debug); */
 
 	fd = open("empty", O_CREAT, S_IRWXU);
 	close(fd);
@@ -56,17 +57,34 @@ void try_cat(void)
 void try_puts(void)
 {
 	ft_putstr("5: testing (ft_puts):\n");
-	printf("\033[34mREF\033[39m=>%s====>%s====>%s====>(null)\n", "\n", "s\n",
-		   "salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut\n");
-	printf("\033[35mCUS\033[39m=>"); fflush(stdout);
+	/* printf("\033[34mREF\033[39m=>%s====>%s====>%s====>(null)\n", "\n", "s\n", */
+		   /* "salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut\n"); */
+
+
+	printf("\033[34mREF\033[39m=>\e[31m"); fflush(stdout);
+	puts("");
+	printf("\e[0m====>\e[31m"); fflush(stdout);
+	puts("s");
+	printf("\e[0m====>\e[31m"); fflush(stdout);
+	/* printf("====>"); fflush(stdout); */
+	puts("salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut");
+	printf("\e[0m====>\e[31m"); fflush(stdout);
+	/* printf("====>"); fflush(stdout); */
+	char *ptr = NULL;
+	puts(ptr);
+
+	printf("\033[0;35mCUS\033[39m=>\e[31m"); fflush(stdout);
 	ft_puts("");
-	printf("====>"); fflush(stdout);
+	printf("\e[0m====>\e[31m"); fflush(stdout);
+	/* printf("====>"); fflush(stdout); */
 	ft_puts("s");
-	printf("====>"); fflush(stdout);
+	printf("\e[0m====>\e[31m"); fflush(stdout);
+	/* printf("====>"); fflush(stdout); */
 	ft_puts("salutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalutsalut");
-	printf("====>"); fflush(stdout);
-	ft_puts(NULL);
-	ft_putstr("\n------------------------------\n");
+	printf("\e[0m====>\e[31m"); fflush(stdout);
+	/* printf("====>"); fflush(stdout); */
+	ft_puts(ptr);
+	ft_putstr("\e[0m------------------------------\n");
 }
 #endif
 
@@ -589,11 +607,13 @@ void	one_memcmp(char *s1, char *s2, size_t size)
 	p2 = (void*)s2;
 	refret = memcmp(p1, p2, size);
 	cusret = ft_memcmp(p1, p2, size);
-	printf("\033[34mREF\033[39m p1(%6s) p2(%6s) si(%u) ret(%d)", s1, s2, size, refret);
+	printf("\033[34mREF\033[39m p1(%6s) p2(%6s) si(%zu) ret(%d)", s1, s2, size, refret);
 	printf("\n");
-	printf("\033[35mCUS\033[39m p1(%6s) p2(%6s) si(%u) ret(%d)", s1, s2, size, cusret);
+	printf("\033[35mCUS\033[39m p1(%6s) p2(%6s) si(%zu) ret(%d)", s1, s2, size, cusret);
+	/* printf("[%d]", cusret); */
+	
 	fflush(stdout);
-	if (refret == cusret)
+	if ((refret > 0) == (cusret > 0) && (refret < 0) == (cusret < 0))
 		ref_myassert(1);
 	else
 		ref_myassert(0);
@@ -626,6 +646,17 @@ void try_memcmp(void)
 	printf("\n");
 	one_memcmp("abcE", "abcE", 5);
 	one_memcmp("abcE", "abcd", 5);
+	one_memcmp("abcd", "abcd", 5);
+	one_memcmp("aBcd", "abcd", 5);
+	one_memcmp("Abcd", "abcd", 5);
+	one_memcmp("abCd", "abcd", 5);
+	one_memcmp("abcd", "aBcd", 5);
+	one_memcmp("abcd", "Abcd", 5);
+	one_memcmp("abcd", "abCd", 5);
+
+	one_memcmp("ab\200d", "ab\1d", 5);
+
+	one_memcmp("ab\1d", "ab\250d", 5);
     ft_putstr("\n------------------------------\n");
 }
 #endif
