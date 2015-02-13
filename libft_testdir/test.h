@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:21:13 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/13 09:59:57 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/13 10:15:00 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,30 +60,33 @@ typedef unsigned int t_ui32;
 // ft_strrchr.c
 // ft_strstr.c
 // ft_tolower.c
-// ft_toupper.c
+// ft_toupper.
 
 
+ # define TEST_BZERO
+ # define TEST_STRCAT
+ # define TEST_ISALPHA
+ # define TEST_ISDIGIT
+ # define TEST_ISALNUM
+ # define TEST_ISASCII
+ # define TEST_ISPRINT
+ # define TEST_TOUPPER
+ # define TEST_TOLOWER
+ # define TEST_PUTS
 
- /* # define TEST_BZERO */
- /* # define TEST_ISALNUM */
- /* # define TEST_ISALPHA */
- /* # define TEST_ISASCII */
- /* # define TEST_ISDIGIT */
- /* # define TEST_ISPRINT */
+ # define TEST_STRLEN
+ # define TEST_MEMSET
+ # define TEST_MEMCPY
+ # define TEST_STRDUP
+
+ # define TEST_CAT
+
+
  /* # define TEST_MEMCMP */
- /* # define TEST_MEMCPY */
- /* # define TEST_MEMSET */
- /* # define TEST_TOLOWER */
  /* # define TEST_STRCPY */
- /* # define TEST_STRCAT */
- /* # define TEST_STRDUP */
- /* # define TEST_TOUPPER */
- /* # define TEST_PUTS */
- /* # define TEST_CAT */
- # define TEST_STRCMP
-/* # define TEST_STRLEN */
- # define TEST_MEMCHR
- # define TEST_STRCHR
+ /* # define TEST_STRCMP */
+ /* # define TEST_MEMCHR */
+ /* # define TEST_STRCHR */
 
 
 
