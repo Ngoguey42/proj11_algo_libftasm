@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:29:25 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/12 14:39:43 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/19 08:03:10 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ int		main(void)
 
 # ifdef TEST_ATOI
 try_atoi();
+# endif
+# ifdef TEST_STRLCPY
+try_strlcpy();
 # endif
 # ifdef TEST_BZERO
 try_bzero();

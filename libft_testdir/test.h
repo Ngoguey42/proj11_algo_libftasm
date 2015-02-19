@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:21:13 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/19 07:11:20 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/19 08:28:30 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,13 @@ typedef unsigned int t_ui32;
  /* # define TEST_CAT */
 
 
- /* # define TEST_MEMCMP */
- /* # define TEST_STRCPY */
- /* # define TEST_STRCMP */
- /* # define TEST_MEMCHR */
- /* # define TEST_STRCHR */
- # define TEST_STRLCAT
+/* # define TEST_MEMCMP */
+/* # define TEST_STRCPY */
+/* # define TEST_STRCMP */
+/* # define TEST_MEMCHR */
+/* # define TEST_STRCHR */
+/* # define TEST_STRLCAT */
+# define TEST_STRLCPY
 
 
 
@@ -105,6 +106,7 @@ typedef unsigned int t_ui32;
  # define TEST_STRSTR
  */
 
+void try_strlcpy(void);
 void try_puts(void);
 void try_cat(void);
 void try_atoi(void);
@@ -162,6 +164,7 @@ size_t	ft_strlen(const char *str);
 char	*ft_strncat(char *destination, const char *source, size_t num);
 int		ft_strncmp(const char *str1, const char *str2, size_t num);
 char	*ft_strncpy(char *destination, const char *source, size_t num);
+size_t ft_strlcpy(char *destination, const char *source, size_t num);
 char	*ft_strnstr(const char *s1, const char *s2, size_t n);
 char	*ft_strrchr(const char *str, int c);
 char	*ft_strstr(const char *str1, const char *str2);

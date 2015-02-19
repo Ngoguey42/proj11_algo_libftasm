@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:28:34 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/19 07:45:04 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/19 08:35:27 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1136,6 +1136,8 @@ void try_strdup(void)
 
 size_t ref_strlcat(char * dst, const char * src, size_t maxlen)
 {
+	return (strlcat(dst, src, maxlen));
+	
     const size_t srclen = strlen(src);
     const size_t dstlen = strnlen(dst, maxlen);
 
@@ -1267,6 +1269,127 @@ void try_strlcat(void)
     one_strlcat("s", "salut", 20);
     one_strlcat("salut", "s", 20);
     one_strlcat("salut", "salut", 20);
+    ft_putstr("\n------------------------------\n");
+}
+#endif
+
+
+# ifdef TEST_STRLCPY
+
+void one_strlcpy(char* dst, char *src, size_t size)
+{
+	char refdst[20] = {1};
+	char cusdst[20] = {1};
+	size_t	refret, cusret;
+
+
+	memset(refdst, 1, 20);
+	memset(cusdst, 1, 20);
+	
+	printf("\033[34mREF\033[39m ");
+	strcpy(refdst, dst);
+	printf("dst(");
+	fflush(stdout);
+	ref_myputnchar(refdst, 20);
+	printf(") src(%s) ", src);
+	printf("size(%zu) ", size);
+	refret = strlcpy(refdst, src, size);
+	printf("dst:then(");
+    fflush(stdout);
+    ref_myputnchar(refdst, 20);
+	printf(") ret[%zu]", refret);
+	printf("\n");
+
+    printf("\033[35mCUS\033[39m ");
+    strcpy(cusdst, dst);
+    printf("dst(");
+    fflush(stdout);
+    ref_myputnchar(cusdst, 20);
+    printf(") src(%s) ", src);
+    printf("size(%zu) ", size);
+	cusret = ft_strlcpy(cusdst, src, size);
+    printf("dst:then(");
+    fflush(stdout);
+    ref_myputnchar(cusdst, 20);
+	printf(") ret[%zu]", cusret);
+	fflush(stdout);
+	ref_myassert(!memcmp(cusdst, refdst, 20) && refret == cusret);
+	/* printf("(\n%p/\n%#llx)", src, (unsigned long long int)cusret); */
+	printf("\n");
+}
+
+void try_strlcpy(void)
+{
+    ft_putstr(": testing (strlcpy):\n");
+    one_strlcpy("", "", 0);
+    one_strlcpy("s", "", 0);
+    one_strlcpy("", "s", 0);
+    one_strlcpy("salut", "", 0);
+    one_strlcpy("", "salut", 0);
+    one_strlcpy("s", "s", 0);
+    one_strlcpy("s", "salut", 0);
+    one_strlcpy("salut", "s", 0);
+    one_strlcpy("salut", "salut", 0);
+    printf("\n");
+    one_strlcpy("", "", 1);
+    one_strlcpy("s", "", 1);
+    one_strlcpy("", "s", 1);
+    one_strlcpy("salut", "", 1);
+    one_strlcpy("", "salut", 1);
+    one_strlcpy("s", "s", 1);
+    one_strlcpy("s", "salut", 1);
+    one_strlcpy("salut", "s", 1);
+    one_strlcpy("salut", "salut", 1);
+    printf("\n");
+    one_strlcpy("", "", 3);
+    one_strlcpy("s", "", 3);
+    one_strlcpy("", "s", 3);
+    one_strlcpy("salut", "", 3);
+    one_strlcpy("", "salut", 3);
+    one_strlcpy("s", "s", 3);
+    one_strlcpy("s", "salut", 3);
+    one_strlcpy("salut", "s", 3);
+    one_strlcpy("salut", "salut", 3);
+    printf("\n");
+    one_strlcpy("", "", 4);
+    one_strlcpy("s", "", 4);
+    one_strlcpy("", "s", 4);
+    one_strlcpy("salut", "", 4);
+    one_strlcpy("", "salut", 4);
+    one_strlcpy("s", "s", 4);
+    one_strlcpy("s", "salut", 4);
+    one_strlcpy("salut", "s", 4);
+    one_strlcpy("salut", "salut", 4);
+    printf("\n");
+    one_strlcpy("", "", 5);
+    one_strlcpy("s", "", 5);
+    one_strlcpy("", "s", 5);
+    one_strlcpy("salut", "", 5);
+    one_strlcpy("", "salut", 5);
+    one_strlcpy("s", "s", 5);
+    one_strlcpy("s", "salut", 5);
+    one_strlcpy("salut", "s", 5);
+    one_strlcpy("salut", "salut", 5);
+    printf("\n");
+    one_strlcpy("", "", 6);
+    one_strlcpy("s", "", 6);
+    one_strlcpy("", "s", 6);
+    one_strlcpy("salut", "", 6);
+    one_strlcpy("", "salut", 6);
+    one_strlcpy("s", "s", 6);
+    one_strlcpy("s", "salut", 6);
+    one_strlcpy("salut", "s", 6);
+    one_strlcpy("salut", "salut", 6);
+    printf("\n");
+    one_strlcpy("", "", 20);
+    one_strlcpy("s", "", 20);
+    one_strlcpy("", "s", 20);
+    one_strlcpy("salut", "", 20);
+    one_strlcpy("", "salut", 20);
+    one_strlcpy("s", "s", 20);
+    one_strlcpy("s", "salut", 20);
+    one_strlcpy("salut", "s", 20);
+    one_strlcpy("salut", "salut", 20);
     ft_putstr("\n------------------------------\n");
 }
 #endif
@@ -1511,6 +1634,7 @@ void try_strncpy(void)
     ft_putstr("\n------------------------------\n");
 }
 #endif
+
 
 
 # ifdef TEST_STRNSTR
