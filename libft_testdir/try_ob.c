@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:28:34 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/13 09:45:06 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/19 07:45:04 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1165,32 +1165,33 @@ void one_strlcat(char* dst, char *src, size_t size)
 	
 	printf("\033[34mREF\033[39m ");
 	strcpy(refdst, dst);
-	printf("dst(", refdst);
+	printf("dst(");
 	fflush(stdout);
 	ref_myputnchar(refdst, 20);
 	printf(") src(%s) ", src);
-	printf("size(%d) ", size);
+	printf("size(%zu) ", size);
 	refret = ref_strlcat(refdst, src, size);
 	printf("dst:then(");
     fflush(stdout);
     ref_myputnchar(refdst, 20);
-	printf(") ret[%u]", refret);
+	printf(") ret[%zu]", refret);
 	printf("\n");
 
     printf("\033[35mCUS\033[39m ");
     strcpy(cusdst, dst);
-    printf("dst(", cusdst);
+    printf("dst(");
     fflush(stdout);
     ref_myputnchar(cusdst, 20);
     printf(") src(%s) ", src);
-    printf("size(%d) ", size);
+    printf("size(%zu) ", size);
 	cusret = ft_strlcat(cusdst, src, size);
     printf("dst:then(");
     fflush(stdout);
     ref_myputnchar(cusdst, 20);
-	printf(") ret[%u]", cusret);
+	printf(") ret[%zu]", cusret);
 	fflush(stdout);
 	ref_myassert(!memcmp(cusdst, refdst, 20) && refret == cusret);
+	/* printf("(\n%p/\n%#llx)", src, (unsigned long long int)cusret); */
 	printf("\n");
 }
 

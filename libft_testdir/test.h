@@ -6,7 +6,7 @@
 /*   By: ngoguey <ngoguey@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/04 11:21:13 by ngoguey           #+#    #+#             */
-/*   Updated: 2015/02/13 10:15:00 by ngoguey          ###   ########.fr       */
+/*   Updated: 2015/02/19 07:11:20 by ngoguey          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,23 +63,23 @@ typedef unsigned int t_ui32;
 // ft_toupper.
 
 
- # define TEST_BZERO
- # define TEST_STRCAT
- # define TEST_ISALPHA
- # define TEST_ISDIGIT
- # define TEST_ISALNUM
- # define TEST_ISASCII
- # define TEST_ISPRINT
- # define TEST_TOUPPER
- # define TEST_TOLOWER
- # define TEST_PUTS
+ /* # define TEST_BZERO */
+ /* # define TEST_STRCAT */
+ /* # define TEST_ISALPHA */
+ /* # define TEST_ISDIGIT */
+ /* # define TEST_ISALNUM */
+ /* # define TEST_ISASCII */
+ /* # define TEST_ISPRINT */
+ /* # define TEST_TOUPPER */
+ /* # define TEST_TOLOWER */
+ /* # define TEST_PUTS */
 
- # define TEST_STRLEN
- # define TEST_MEMSET
- # define TEST_MEMCPY
- # define TEST_STRDUP
+ /* # define TEST_STRLEN */
+ /* # define TEST_MEMSET */
+ /* # define TEST_MEMCPY */
+ /* # define TEST_STRDUP */
 
- # define TEST_CAT
+ /* # define TEST_CAT */
 
 
  /* # define TEST_MEMCMP */
@@ -87,6 +87,7 @@ typedef unsigned int t_ui32;
  /* # define TEST_STRCMP */
  /* # define TEST_MEMCHR */
  /* # define TEST_STRCHR */
+ # define TEST_STRLCAT
 
 
 
@@ -96,7 +97,6 @@ typedef unsigned int t_ui32;
 
 
  /*
- # define TEST_STRLCAT
  # define TEST_STRNCAT
  # define TEST_STRNCMP
  # define TEST_STRNCPY
